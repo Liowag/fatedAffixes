@@ -7,6 +7,8 @@ enum affixNames {
     KICK
 };
 
+declare var WH: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -84,13 +86,22 @@ export class AppComponent {
     if (this.region === 'EU') {
       differenceInDays -= 1;
     }
+    let refreshTooltips = false;
+    if (this.id !== Math.floor(differenceInDays / 7)) {
+      refreshTooltips = true;
+    }
     this.id = Math.floor(differenceInDays / 7);
+    if (refreshTooltips) {
+      setTimeout(() => {
+        WH.Tooltips.refreshLinks();
+      });
+    }
   }
 
   public calcCurAffix(affix: number) {
     let curAffix = (affix+this.id)%4;
     if (curAffix < 0) {
-      curAffix = 3+curAffix;
+      curAffix = 4+curAffix;
     }
     return curAffix;
   }
