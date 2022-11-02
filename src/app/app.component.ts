@@ -28,50 +28,51 @@ export class AppComponent {
   public currentDate: any;
   public region = 'EU';
   public id = 0;
+  public nrOfAffixes = 3;
 
   public cnBosses = [
-    { label: 'Shriekwing', affix1: affixNames.KICK+3, affix2: affixNames.BARRIER+3},
-    { label: 'Huntsman Altimor', affix1: affixNames.BARRIER+3, affix2: affixNames.MOTES+3},
-    { label: 'Hungering Destroyer', affix1: affixNames.MOTES+3, affix2: affixNames.KICK+3},
-    { label: 'Lady Inerva Darkvein', affix1: affixNames.KICK+3, affix2: affixNames.MOTES+3},
-    { label: 'Sun King\'s Salvation', affix1: affixNames.MOTES+3, affix2: affixNames.SOAKS+3},
-    { label: 'Artificer Xy\'mox', affix1: affixNames.SOAKS+3, affix2: affixNames.KICK+3},
-    { label: 'Council of Blood', affix1: affixNames.BARRIER+3, affix2: affixNames.SOAKS+3},
-    { label: 'Sludgefist', affix1: affixNames.SOAKS+3, affix2: affixNames.BARRIER+3},
-    { label: 'Stone Legion Generals', affix1: affixNames.KICK+3, affix2: affixNames.SOAKS+3},
-    { label: 'Sire Denathrius', affix1: affixNames.BARRIER+3, affix2: affixNames.KICK+3},
+    { label: 'Shriekwing', affix1: affixNames.KICK+3, affix2: affixNames.BARRIER+3, affix3: affixNames.BARRIER, affix4: affixNames.MOTES},
+    { label: 'Huntsman Altimor', affix1: affixNames.BARRIER+3, affix2: affixNames.MOTES+3, affix3: affixNames.MOTES, affix4: affixNames.SOAKS},
+    { label: 'Hungering Destroyer', affix1: affixNames.MOTES+3, affix2: affixNames.KICK+3, affix3: affixNames.KICK, affix4: affixNames.MOTES},
+    { label: 'Lady Inerva Darkvein', affix1: affixNames.KICK+3, affix2: affixNames.MOTES+3, affix3: affixNames.MOTES, affix4: affixNames.KICK},
+    { label: 'Sun King\'s Salvation', affix1: affixNames.MOTES+3, affix2: affixNames.SOAKS+3, affix3: affixNames.SOAKS, affix4: affixNames.KICK},
+    { label: 'Artificer Xy\'mox', affix1: affixNames.SOAKS+3, affix2: affixNames.KICK+3, affix3: affixNames.KICK, affix4: affixNames.BARRIER},
+    { label: 'Council of Blood', affix1: affixNames.BARRIER+3, affix2: affixNames.SOAKS+3, affix3: affixNames.SOAKS, affix4: affixNames.BARRIER},
+    { label: 'Sludgefist', affix1: affixNames.SOAKS+3, affix2: affixNames.BARRIER+3, affix3: affixNames.BARRIER, affix4: affixNames.SOAKS},
+    { label: 'Stone Legion Generals', affix1: affixNames.KICK+3, affix2: affixNames.SOAKS+3, affix3: affixNames.KICK, affix4: affixNames.BARRIER},
+    { label: 'Sire Denathrius', affix1: affixNames.BARRIER+3, affix2: affixNames.KICK+3, affix3: affixNames.BARRIER, affix4: affixNames.MOTES},
   ];
   public sodBosses = [
-    { label: 'Tarragrue', affix1: affixNames.MOTES+2, affix2: affixNames.SOAKS+2},
-    { label: 'Eye of the Jailer', affix1: affixNames.SOAKS+2, affix2: affixNames.KICK+2},
-    { label: 'The Nine', affix1: affixNames.KICK+2, affix2: affixNames.BARRIER+2},
-    { label: 'Remnant of Ner\'zhul', affix1: affixNames.BARRIER+2, affix2: affixNames.MOTES+2},
-    { label: 'Soulrender Dormazain', affix1: affixNames.MOTES+2, affix2: affixNames.KICK+2},
-    { label: 'Painsmith Raznal', affix1: affixNames.BARRIER+2, affix2: affixNames.SOAKS+2},
-    { label: 'Guardian of the First Ones', affix1: affixNames.KICK+2, affix2: affixNames.SOAKS+2},
-    { label: 'Fatescribe Roh\'kalo', affix1: affixNames.BARRIER+2, affix2: affixNames.SOAKS+2},
-    { label: 'Kel\'thuzad', affix1: affixNames.MOTES+2, affix2: affixNames.BARRIER+2},
-    { label: 'Sylvanas Windrunner', affix1: affixNames.SOAKS+2, affix2: affixNames.MOTES+2},
+    { label: 'Tarragrue', affix1: affixNames.MOTES+2, affix2: affixNames.SOAKS+2, affix3: affixNames.MOTES, affix4: affixNames.SOAKS},
+    { label: 'Eye of the Jailer', affix1: affixNames.SOAKS+2, affix2: affixNames.KICK+2, affix3: affixNames.SOAKS, affix4: affixNames.KICK},
+    { label: 'The Nine', affix1: affixNames.KICK+2, affix2: affixNames.BARRIER+2, affix3: affixNames.KICK, affix4: affixNames.BARRIER},
+    { label: 'Remnant of Ner\'zhul', affix1: affixNames.BARRIER+2, affix2: affixNames.MOTES+2, affix3: affixNames.BARRIER, affix4: affixNames.MOTES},
+    { label: 'Soulrender Dormazain', affix1: affixNames.MOTES+2, affix2: affixNames.KICK+2, affix3: affixNames.SOAKS, affix4: affixNames.BARRIER},
+    { label: 'Painsmith Raznal', affix1: affixNames.BARRIER+2, affix2: affixNames.SOAKS+2, affix3: affixNames.KICK, affix4: affixNames.MOTES},
+    { label: 'Guardian of the First Ones', affix1: affixNames.KICK+2, affix2: affixNames.SOAKS+2, affix3: affixNames.BARRIER, affix4: affixNames.SOAKS},
+    { label: 'Fatescribe Roh\'kalo', affix1: affixNames.BARRIER+2, affix2: affixNames.SOAKS+2, affix3: affixNames.MOTES, affix4: affixNames.KICK},
+    { label: 'Kel\'thuzad', affix1: affixNames.MOTES+2, affix2: affixNames.BARRIER+2, affix3: affixNames.BARRIER, affix4: affixNames.MOTES},
+    { label: 'Sylvanas Windrunner', affix1: affixNames.SOAKS+2, affix2: affixNames.MOTES+2, affix3: affixNames.MOTES, affix4: affixNames.SOAKS},
   ];
   public sofoBosses = [
-    { label: 'Vigilant Guardian', affix1: affixNames.KICK+1, affix2: affixNames.BARRIER+1},
-    { label: 'Skolex', affix1: affixNames.BARRIER+1, affix2: affixNames.MOTES+1},
-    { label: 'Artificer Xy\'mox', affix1: affixNames.MOTES+1, affix2: affixNames.SOAKS+1},
-    { label: 'Halondrus', affix1: affixNames.SOAKS+1, affix2: affixNames.KICK+1},
-    { label: 'Dausegne', affix1: affixNames.MOTES+1, affix2: affixNames.KICK+1},
-    { label: 'Prototype Pantheon', affix1: affixNames.BARRIER+1, affix2: affixNames.SOAKS+1},
-    { label: 'Lihuvim', affix1: affixNames.KICK+1, affix2: affixNames.MOTES+1},
-    { label: 'Anduin Wrynn', affix1: affixNames.BARRIER+1, affix2: affixNames.KICK+1},
-    { label: 'Lords of Dread', affix1: affixNames.MOTES+1, affix2: affixNames.BARRIER+1},
-    { label: 'Rygelon', affix1: affixNames.SOAKS+1, affix2: affixNames.BARRIER+1},
-    { label: 'The Jailer', affix1: affixNames.KICK+1, affix2: affixNames.SOAKS+1},
+    { label: 'Vigilant Guardian', affix1: affixNames.KICK+1, affix2: affixNames.BARRIER+1, affix3: affixNames.SOAKS, affix4: affixNames.KICK},
+    { label: 'Skolex', affix1: affixNames.BARRIER+1, affix2: affixNames.MOTES+1, affix3: affixNames.KICK, affix4: affixNames.BARRIER},
+    { label: 'Artificer Xy\'mox', affix1: affixNames.MOTES+1, affix2: affixNames.SOAKS+1, affix3: affixNames.BARRIER, affix4: affixNames.MOTES},
+    { label: 'Halondrus', affix1: affixNames.SOAKS+1, affix2: affixNames.KICK+1, affix3: affixNames.MOTES, affix4: affixNames.SOAKS},
+    { label: 'Dausegne', affix1: affixNames.MOTES+1, affix2: affixNames.KICK+1, affix3: affixNames.MOTES, affix4: affixNames.KICK},
+    { label: 'Prototype Pantheon', affix1: affixNames.BARRIER+1, affix2: affixNames.SOAKS+1, affix3: affixNames.BARRIER, affix4: affixNames.SOAKS},
+    { label: 'Lihuvim', affix1: affixNames.KICK+1, affix2: affixNames.MOTES+1, affix3: affixNames.KICK, affix4: affixNames.MOTES},
+    { label: 'Anduin Wrynn', affix1: affixNames.BARRIER+1, affix2: affixNames.KICK+1, affix3: affixNames.SOAKS, affix4: affixNames.KICK},
+    { label: 'Lords of Dread', affix1: affixNames.MOTES+1, affix2: affixNames.BARRIER+1, affix3: affixNames.KICK, affix4: affixNames.BARRIER},
+    { label: 'Rygelon', affix1: affixNames.SOAKS+1, affix2: affixNames.BARRIER+1, affix3: affixNames.SOAKS, affix4: affixNames.BARRIER},
+    { label: 'The Jailer', affix1: affixNames.KICK+1, affix2: affixNames.SOAKS+1, affix3: affixNames.MOTES, affix4: affixNames.SOAKS},
   ];
 
   constructor() {
     this.changeId(new Date());
   }
 
-  public changeId(date: any = null) {
+  public changeId(date: any = null, forceRefresh = false) {
     if (date) {
       this.currentDate = date;
     }
@@ -91,7 +92,7 @@ export class AppComponent {
       refreshTooltips = true;
     }
     this.id = Math.floor(differenceInDays / 7);
-    if (refreshTooltips) {
+    if (refreshTooltips || forceRefresh) {
       setTimeout(() => {
         WH.Tooltips.refreshLinks();
       });

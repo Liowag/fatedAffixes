@@ -9,14 +9,18 @@
               <tr>
                 <th scope="col">Boss</th>
                 <th scope="col">Mandatory Affix</th>
-                <th scope="col">Optional Affix</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 2">Optional Affix</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 3">Optional Affix 2</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 4">Optional Affix 3</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let boss of cnBosses">
                 <th>{{boss.label}}</th>
                 <td>{{affixes[calcCurAffix(boss.affix1)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix1)].url}}">Link</a> )</td>
-                <td>{{affixes[calcCurAffix(boss.affix2)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix2)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 2">{{affixes[calcCurAffix(boss.affix2)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix2)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 3">{{affixes[calcCurAffix(boss.affix3)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix3)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 4">{{affixes[calcCurAffix(boss.affix4)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix4)].url}}">Link</a> )</td>
               </tr>
             </tbody>
           </table>
@@ -29,14 +33,18 @@
               <tr>
                 <th scope="col">Boss</th>
                 <th scope="col">Mandatory Affix</th>
-                <th scope="col">Optional Affix</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 2">Optional Affix</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 3">Optional Affix 2</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 4">Optional Affix 3</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let boss of sodBosses">
                 <th>{{boss.label}}</th>
                 <td>{{affixes[calcCurAffix(boss.affix1)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix1)].url}}">Link</a> )</td>
-                <td>{{affixes[calcCurAffix(boss.affix2)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix2)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 2">{{affixes[calcCurAffix(boss.affix2)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix2)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 3">{{affixes[calcCurAffix(boss.affix3)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix3)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 4">{{affixes[calcCurAffix(boss.affix4)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix4)].url}}">Link</a> )</td>
               </tr>
             </tbody>
           </table>
@@ -49,14 +57,18 @@
               <tr>
                 <th scope="col">Boss</th>
                 <th scope="col">Mandatory Affix</th>
-                <th scope="col">Optional Affix</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 2">Optional Affix</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 3">Optional Affix 2</th>
+                <th scope="col" *ngIf="nrOfAffixes >= 4">Optional Affix 3</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let boss of sofoBosses">
                 <th>{{boss.label}}</th>
                 <td>{{affixes[calcCurAffix(boss.affix1)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix1)].url}}">Link</a> )</td>
-                <td>{{affixes[calcCurAffix(boss.affix2)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix2)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 2">{{affixes[calcCurAffix(boss.affix2)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix2)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 3">{{affixes[calcCurAffix(boss.affix3)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix3)].url}}">Link</a> )</td>
+                <td *ngIf="nrOfAffixes >= 4">{{affixes[calcCurAffix(boss.affix4)].type}}<br />( <a href="{{affixes[calcCurAffix(boss.affix4)].url}}">Link</a> )</td>
               </tr>
             </tbody>
           </table>
@@ -66,7 +78,7 @@
     <div class="options">
       <h2>Options</h2>
       <div class="row">
-        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+        <div class="col-xs-12 col-12 col-md-2 col-xl-1 form-group mb-3">
           <label>Region</label><br />
           <div class="btn-group regionBtns" role="group" aria-label="radio toggle button group">
             <input type="radio" class="btn-check" name="region" id="region-EU" [value]="'EU'" [(ngModel)]="region" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeId()">
@@ -75,10 +87,19 @@
             <label class="btn btn-outline-light" for="region-US">US</label>
           </div>
         </div>
-        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+        <div class="col-xs-12 col-12 col-md-3 form-group mb-3">
           <label>Check future Date?</label>
           <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker placement="top"
             [bsConfig]="{ isAnimated: true }" (bsValueChange)="changeId($event)">
+        </div>
+        <div class="col-xs-12 col-12 col-md-3 col-lg-2 form-group mb-3">
+          <label>Number of Affixes</label>
+          <select class="form-select" name="nrOfAffixes" [(ngModel)]="nrOfAffixes" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeId(null, true)">            
+            <option [value]="1">1</option>
+            <option [value]="2">2</option>
+            <option [value]="3">3</option>
+            <option [value]="4">4</option>
+          </select>
         </div>
       </div>
     </div>
