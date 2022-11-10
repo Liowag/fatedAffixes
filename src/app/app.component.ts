@@ -49,7 +49,7 @@ export class AppComponent {
     { label: 'Remnant of Ner\'zhul', affix1: affixNames.BARRIER+2, affix2: affixNames.MOTES+2, affix3: affixNames.BARRIER, affix4: affixNames.MOTES},
     { label: 'Soulrender Dormazain', affix1: affixNames.MOTES+2, affix2: affixNames.KICK+2, affix3: affixNames.SOAKS, affix4: affixNames.BARRIER},
     { label: 'Painsmith Raznal', affix1: affixNames.BARRIER+2, affix2: affixNames.SOAKS+2, affix3: affixNames.KICK, affix4: affixNames.MOTES},
-    { label: 'Guardian of the First Ones', affix1: affixNames.KICK+2, affix2: affixNames.SOAKS+2, affix3: affixNames.BARRIER, affix4: affixNames.SOAKS},
+    { label: 'Guardian of the First Ones', affix1: affixNames.MOTES, affix2: affixNames.KICK, affix3: affixNames.BARRIER, affix4: affixNames.SOAKS},
     { label: 'Fatescribe Roh\'kalo', affix1: affixNames.BARRIER+2, affix2: affixNames.SOAKS+2, affix3: affixNames.MOTES, affix4: affixNames.KICK},
     { label: 'Kel\'thuzad', affix1: affixNames.MOTES+2, affix2: affixNames.BARRIER+2, affix3: affixNames.BARRIER, affix4: affixNames.MOTES},
     { label: 'Sylvanas Windrunner', affix1: affixNames.SOAKS+2, affix2: affixNames.MOTES+2, affix3: affixNames.MOTES, affix4: affixNames.SOAKS},
